@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova Formativa 1 – HTML e CSS (Flexbox)</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background: #f8fbca;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            min-height:100vh ;
+            gap: 15px;
+            padding: 15px;
+            box-sizing: border-box;
+            justify-content: center; 
+        }
+
+        header, nav, main, section, article, footer, aside, .destaque, img{
+            padding: 15px;
+            border: 1px solid #86895d;
+            border-radius: 6px;
+            background-color: #fff;
+            box-sizing: border-box;
+        }
+
+        header {
+            flex: 1 0 100%;
+            color: white;
+            background: #272b00;
+        }
+
+        nav{
+            color: white;
+            background: #54582f;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 10px 15px; 
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #272b00;
+        }
+
+        .intro, .destaques {
+            flex: 1 1 calc(50% - 15px);
+            min-height: 200px;
+        }
+
+        .intro h2{
+            text-align: center;
+        }
+
+        .texto1{
+            text-align: justify;
+        }
+
+        .destaques{
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .destaques h2{
+            text-align: center;
+        }
+
+        .destaque{
+            background-color: #86895d;
+            text-align: justify;
+        }
+        
+        section, aside, article{
+            background: #bec092;
+        }
+
+        article {
+            box-shadow: 6px 6px 5px #86895d;
+        }
+
+        .artigo {
+            flex: 1 1 calc(25% - 15px);
+            min-height: 180px;
+        }
+
+        .linha-3 {
+            display: flex;
+            flex: 1 1 100%;
+            gap: 15px;
+        }
+        
+        .artigos-extra {
+            flex: 1 1 50%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .artigos-extra article {
+            flex: 1; 
+            min-height: 120px;
+        }
+
+        article p{
+            text-align: justify;
+        }
+
+        img{
+            background: #f8fbca;
+        }
+
+        .imagem-grande {
+            flex: 1 1 50%;
+            text-align: center;
+        }
+        
+        .imagem-grande img {
+            width: 500px;
+            height: 400px; 
+            border-radius: 6px;
+        }
+
+        .galeria{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .galeria h2{
+            text-align: center;
+        }
+
+        .galeria-imagens{
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .galeria-imagens img{
+            width: 350px;  
+            height: 350px;
+            object-fit: cover;
+        }
+
+        figcaption{
+            text-align: center;
+        }
+    
+        footer {
+            flex: 1 0 100%;
+            text-align: center;
+            font-size: 0.9em;
+            color: white;
+            background: #272b00;
+        }
+
+        @media (max-width: 500px) {
+            .intro, 
+            .destaques, 
+            .artigo,
+            .imagem-grande,
+            .artigos-extra {
+                flex: 1 1 100%; 
+            }
+
+            .linha-3 {
+                flex-direction: column;
+                flex: 1 1 100%;
+            }
+
+            .imagem-grande img {
+                width: 100%;
+                height: auto; 
+            }
+
+            .galeria-imagens {
+                flex-direction: column;
+                gap: 0;
+            }
+    
+            .galeria-imagens figure {
+                flex: 1 1 100%;
+            }
+    
+            .galeria-imagens figure img {
+                width: 100%;
+                height: auto;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+        }
+
+        @media (min-width: 501px) {
+            header {
+            position: sticky; 
+            top: 0;
+            z-index: 100;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <header>
+            <h1>Fotografia com Flexbox</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Sobre</a></li>
+                    <li><a href="#">Serviços</a></li>
+                    <li><a href="#galeria">Galeria</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="intro">
+            <h2>Introdução</h2>
+            <p class="texto1">
+                Aqui, cada clique é uma janela para uma nova perspectiva, uma emoção, um momento que merece ser eternizado. Explore a galeria e permita-se viajar através de cores, luzes e sombras. O que você vê aqui é mais que fotografia: é a alma de instantes inesquecíveis.
+            </p>
+        </section>
+
+        <aside class="destaques">
+            <h2>Destaques</h2>
+            <div class="destaque">
+                <h3>A Força da Natureza</h3>
+                    <p>
+                       Explore a beleza bruta e a serenidade da natureza através de imagens que capturam paisagens grandiosas, vida selvagem em seu habitat natural e os pequenos detalhes que muitas vezes escapam aos nossos olhos. Cada foto é um convite para respirar fundo e se reconectar com o mundo ao nosso redor.
+                    </p>
+            </div>
+            <div class="destaque">
+                <h3>O Poder dos Retratos</h3>
+                    <p>
+                        Mergulhe no universo dos retratos. Aqui, a fotografia vai além da imagem e captura a essência, a emoção e a história de cada pessoa. Descubra a beleza nas expressões, nos olhares e nas conexões humanas que transformam um simples clique em uma memória eterna.
+                    </p>
+            </div>
+        </aside>
+
+        <article class="artigo">
+            <h3>O Segredo da Luz Perfeita</h3>
+                <p>A fotografia é, em sua essência, a arte de pintar com a luz. O segredo para uma imagem impressionante está em saber como a luz se comporta. Observe o nascer e o pôr do sol para conseguir tons dourados, e use dias nublados para uma iluminação suave e uniforme que destaca os detalhes sem sombras duras.</p>
+        </article>
+
+        <article class="artigo">
+            <h3>Além do Foco: A Composição</h3>
+                <p>Uma foto bem composta atrai o olhar e o guia pela cena. Explore a regra dos terços, posicionando seu objeto principal fora do centro, ou experimente a simetria para um efeito mais dramático. A forma como você organiza os elementos é o que transforma um simples clique em uma obra de arte.</p>
+        </article>
+
+        <article class="artigo">
+            <h3>Capturando o Movimento</h3>
+                <p>Não tenha medo do desfoque. Use uma velocidade do obturador baixa para criar o efeito de <i>motion blur</i>, ideal para capturar a energia de uma cidade à noite ou o movimento de uma cachoeira. O resultado é uma foto que parece viva, cheia de dinamismo e emoção.</p>
+        </article>
+
+        <article class="artigo">
+            <h3>A Arte do Retrato Espontâneo</h3>
+                <p>Os melhores retratos nem sempre são posados. Foque em capturar momentos genuínos, onde a pessoa está relaxada e interagindo com o ambiente. Uma risada, um olhar distraído ou um gesto natural podem revelar a verdadeira personalidade e contar uma história muito mais autêntica do que qualquer pose.</p>
+        </article>
+
+        <section class="linha-3">
+            <section class="imagem-grande">
+                <h2>Destaque do mês:</h2>
+                <figure>
+                    <img src="https://images.pexels.com/photos/33663264/pexels-photo-33663264.jpeg" alt="Uma bicicleta de carga antiga com dois cachorros sentados na caçamba, e um terceiro deitado ao lado, em preto e branco.">
+                    <figcaption>Cachorros observando de uma bicicleta de carga.</figcaption>
+                </figure>
+        </section>
+
+        <div class="artigos-extra">
+            <article>
+                <h3>O Olhar nos Detalhes</h3>
+                    <p>O mundo está cheio de belezas escondidas, e a fotografia nos permite revelá-las. Concentre-se nos pequenos detalhes que a maioria das pessoas ignora: a textura de uma folha, a gota de orvalho em uma flor ou a complexa teia de uma aranha. Essas fotos de macro trazem um novo nível de admiração e curiosidade.</p>
+            </article>
+
+            <article>
+                <h3>Por que a <i>Fotografia Still</i> é Tão Poderosa</h3>
+                    <p>A fotografia de natureza morta <i>(still life)</i> tem um charme único. Ela nos ensina a ser pacientes e a construir a cena perfeita. Ao organizar objetos, luz e sombra, você pode criar composições que evocam emoções, contam narrativas e transformam itens comuns em protagonistas de uma imagem.</p>
+            </article>
+        </div>
+        </section>
+
+        <section class="galeria" id="galeria">
+            <h2>Galeria de Imagens</h2>
+                <div class="galeria-imagens">
+                    <figure><img src="https://images.pexels.com/photos/33564839/pexels-photo-33564839.jpeg" alt="Primeiro plano de espigas de capim com pelos brancos e fundo verde desfocado.">
+                    <figcaption>Espigas de capim em um campo verde.</figcaption></figure>
+                    <figure><img src="https://images.pexels.com/photos/32613165/pexels-photo-32613165.jpeg" alt="Campo verde coberto por dentes-de-leão em flor, com um gol de futebol branco ao fundo.">
+                    <figcaption>Dentes-de-leão em um campo com gol de futebol.</figcaption></figure>
+                    <figure><img src="https://images.pexels.com/photos/33562244/pexels-photo-33562244.jpeg" alt="Primeiro plano de cactos, com o horizonte de uma cidade e prédios altos ao fundo.">
+                    <figcaption>Cactos com a cidade ao fundo.</figcaption></figure>
+                </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 - Fotografia com Flexbox. Todos os direitos reservados.</p>
+        </footer>    
+
+    </div>
+</body>
+</html>
